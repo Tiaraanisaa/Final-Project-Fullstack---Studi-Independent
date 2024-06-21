@@ -64,9 +64,9 @@ class ProductController {
 
   static updateProduct(req, res) {
     let id = +req.params.id;
-    const { name, qty, categoryId, imageUrl, createdBy } = req.body;
+    const { name, qty, categoryId, imageUrl, createdBy, updatedBy } = req.body;
     product.update({
-      name, qty, categoryId, imageUrl, createdBy
+      name, qty, categoryId, imageUrl,createdBy, updatedBy
     }, {
       where: { id }
     })

@@ -67,7 +67,7 @@ class _ProductScreenState extends State<ProductScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Products')),
+      appBar: AppBar(title: Text('Product List')),
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -93,6 +93,7 @@ class _ProductScreenState extends State<ProductScreen> {
                           DataColumn(label: Text('Category ID')),
                           DataColumn(label: Text('Image URL')),
                           DataColumn(label: Text('Created By')),
+                          DataColumn(label: Text('Updated By')),
                           DataColumn(label: Text('Actions')),
                         ],
                         rows: _products.asMap().entries.map((entry) {
@@ -105,6 +106,7 @@ class _ProductScreenState extends State<ProductScreen> {
                             DataCell(Text(product['categoryId'].toString())),
                             DataCell(Text(product['imageUrl'])),
                             DataCell(Text(product['createdBy'])),
+                            DataCell(Text(product['updatedBy'] ?? '')),
                             DataCell(
                               Row(
                                 children: [

@@ -71,6 +71,7 @@ flutter:
     - assets/image/bgLogin.jpg
     - assets/image/bgRegister2.jpg
     - assets/gif/bgProduct.gif
+    - assets/gif/checkmark.gif
 
   # To add assets to your application, add an assets section, like this:
   # assets:

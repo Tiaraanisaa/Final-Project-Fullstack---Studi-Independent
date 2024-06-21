@@ -29,7 +29,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
     _imageUrlController =
         TextEditingController(text: widget.product['imageUrl']);
     _updatedByController =
-        TextEditingController(text: widget.product['updatedBy']);
+        TextEditingController(text: widget.product['updatedBy'] ?? '');
   }
 
   @override

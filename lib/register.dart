@@ -39,14 +39,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
     });
 
     if (_image != null) {
-      print('Registering user...');
+      print(
+          'Mendaftarkan pengguna dengan username: ${_usernameController.text} dan path gambar: ${_image!.path}');
       try {
         bool success = await _apiService.registerUser(
           _usernameController.text,
           _passwordController.text,
           _image!.path,
         );
-        print('Registration success: $success');
+        print('Registrasi berhasil: $success');
 
         setState(() {
           _isLoading = false;
@@ -57,20 +58,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
           _showSuccessDialog();
         } else {
           setState(() {
-            _errorMessage = 'Registration failed. Please try again.';
+            _errorMessage = 'Pendaftaran gagal. Silakan coba lagi.';
           });
         }
       } catch (e) {
-        print('Error during registration: $e');
+        print('Kesalahan selama pendaftaran: $e');
         setState(() {
           _isLoading = false;
-          _errorMessage = 'An error occurred. Please try again.';
+          _errorMessage = 'Terjadi kesalahan. Silakan coba lagi.';
         });
       }
     } else {
       setState(() {
         _isLoading = false;
-        _errorMessage = 'Please select an image';
+        _errorMessage = 'Silakan pilih gambar';
       });
     }
   }
@@ -85,8 +86,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Success'),
-        content: Text('User registered successfully'),
+        title: Text('Registered Successfully'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset(
+              'assets/gif/checkmark.gif',
+            ),
+            SizedBox(height: 10),
+            Text('Hello !'),
+          ],
+        ),
         actions: [
           TextButton(
             onPressed: () {
@@ -106,7 +116,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(title: Text('Register')),
       body: Stack(
         children: [
           Positioned.fill(

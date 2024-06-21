@@ -20,7 +20,11 @@ const product = sequelize.define('product', {
   },
   createdBy: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: true
+  },
+  updatedBy: {
+    type: DataTypes.STRING,
+    allowNull: true
   }
 });
 

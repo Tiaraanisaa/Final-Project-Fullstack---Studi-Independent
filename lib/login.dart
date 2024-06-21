@@ -37,12 +37,20 @@ class _LoginScreenState extends State<LoginScreen> {
 
     final success = await _apiService.loginUser(username, password);
     if (success) {
-      print('User logged in successfully');
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
           title: Text('Login Successful'),
-          content: Text('Welcome!'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Image.asset(
+                'assets/gif/checkmark.gif',
+              ),
+              SizedBox(height: 10),
+              Text('Welcome !'),
+            ],
+          ),
           actions: [
             TextButton(
               onPressed: () {
